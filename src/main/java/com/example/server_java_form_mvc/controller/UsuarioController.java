@@ -1,5 +1,6 @@
 package com.example.server_java_form_mvc.controller;
 
+import com.example.server_java_form_mvc.dto.UsuarioDTO;
 import com.example.server_java_form_mvc.model.Usuario;
 import com.example.server_java_form_mvc.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,8 +32,11 @@ public class UsuarioController {
     }
 
     @PostMapping("/criarUsuario")
-    public ResponseEntity<Usuario> criarUsuario(@RequestBody Usuario usuario) {
-        userService.criarUsuario(usuario); // Chamando o serviço para criar o usuário
-        return ResponseEntity.ok(usuario); // Retorna o usuário criado como resposta JSON
+    public ResponseEntity<?> criarUsuario(@RequestBody UsuarioDTO usuarioDTO) {
+        System.out.println("Recebido DTO: " + usuarioDTO);
+        // Chamando o serviço para criar o usuário e armazenando o resultado em 'output'
+        Usuario output = userService.criarUsuario(usuarioDTO);
+        System.out.println("Usuário criado: " + output);
+        return ResponseEntity.ok(output); // Retorna o usuário criado como resposta JSON
     }
 }

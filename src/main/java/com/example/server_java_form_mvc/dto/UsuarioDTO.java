@@ -1,21 +1,20 @@
-package com.example.server_java_form_mvc.model;
+package com.example.server_java_form_mvc.dto;
 
-public class Usuario {
+public class UsuarioDTO {
     private String name;
     private String email;
     private String password;
 
-    public Usuario() {
-        // Construtor padrão
+    // Construtores, getters e setters
+    public UsuarioDTO() {
     }
 
-    public Usuario(String name, String email, String password) {
+    public UsuarioDTO(String name, String email, String password) {
         this.name = name;
         this.email = email;
         this.password = password;
     }
 
-    // Getters e Setters
     public String getName() {
         return name;
     }
@@ -38,14 +37,5 @@ public class Usuario {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    @Override
-    public String toString() {
-        return "Usuario{" +
-                "name='" + name + '\'' +
-                ", email='" + email + '\'' +
-                ", password='" + password + '\'' +
-                '}';
     }
 }
