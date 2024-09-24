@@ -1,8 +1,9 @@
 package com.example.server_java_form_mvc.service;
 
+import com.example.server_java_form_mvc.database.Db;
 import com.example.server_java_form_mvc.dto.UsuarioDTO;
 import com.example.server_java_form_mvc.model.Usuario;
-import com.example.server_java_form_mvc.repository.Db;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,8 +25,9 @@ public class UserService {
         // Cria uma nova instância de Usuario com os dados do DTO
         Usuario usuario = new Usuario(usuarioDTO.getName(), usuarioDTO.getEmail(), usuarioDTO.getPassword());
         System.out.println(usuario.toString());
-        // Simula a persistência de usuários
-        db.adicionarUsuario(usuario);
+        // Simula a persistência de usuários e obtém o novo tamanho da lista
+        int totalUsuarios = db.adicionarUsuario(usuario);
+        System.out.println("Número de usuários após adição: " + totalUsuarios);
 
         // Exibe o estado atual do banco de dados
         System.out.println("Usuário salvo com sucesso!");

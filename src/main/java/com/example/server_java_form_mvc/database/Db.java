@@ -1,4 +1,4 @@
-package com.example.server_java_form_mvc.repository;
+package com.example.server_java_form_mvc.database;
 
 import com.example.server_java_form_mvc.model.Usuario;
 import org.springframework.stereotype.Repository;
@@ -10,8 +10,9 @@ import java.util.List;
 public class Db {
     private List<Usuario> usuarios = new ArrayList<>();
 
-    public void adicionarUsuario(Usuario usuario) {
-        usuarios.add(usuario);
+    public int adicionarUsuario(Usuario usuario) {
+        usuarios.add(usuario); // Adiciona o usuário na lista
+        return usuarios.size(); // Retorna o tamanho da lista após a adição
     }
 
     public List<Usuario> getUsuarios() {
